@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>TypeScript Origamid</title>
+</head>
+
+<body>
+  <main>
+    <div class="box-login">
+      <h1>Olá, faça login na sua conta!</h1>
+      <form class="formLogin" id="formLogin">
+        <div>
+          <label for="loginId">Login:</label>
+          <input type="number" name="loginId" id="loginId" autocomplete="off" placeholder="ID da sua conta" required>
+        </div>
+        <div>
+          <label for="loginSenha">Senha:</label>
+          <input type="password" name="loginSenha" id="loginSenha" maxlength="6" minlength="4" required>
+        </div>
+        <input type="button" value="Entrar" onclick="bank.logar()">
+      </form>
+    </div>
+    <section class="main-section">
+      <div class="box-01" id="box-01">
+        <h1 class="conta-ola">Bem vindo <span style="color: #233991;" id="conta-ola">faça o login</span></h1>
+        <h2>Seu saldo atual:<span id="conta-saldo"></span></h2>
+        <h3>Deseja realizar alguma operação:</h3>
+        <form id="form-conta" class="form-conta">
+          <div class="input-wrapper">
+            <label for="inputValor" class="labelValor">Valor:</label>
+            <span class="currency-symbol">R$</span>
+            <input class="inputValor" type="number" name="inputValor" id="inputValor" maxlength="9" autocomplete="off">
+          </div>
+          <div class="btn-sacarDepositar">
+            <input class="btn-form" type="button" value="Sacar" onclick="cliente.sacar()">
+            <input class="btn-sacar" type="button" value="Depositar" onclick="cliente.depositar()">
+          </div>
+          <div class="form-transferir">
+            <label for="transferirID">Para quem deseja transferir:</label>
+            <input type="number" name="transferirID" id="transferirID" autocomplete="off" placeholder="ID Destino" class="transferirID">
+          </div>
+          <input class="btn-transferir" type="button" value="Transferir" onclick="cliente.transferir()">
+        </form>
+      </div>
+      <div class="box-02" id="box-02">
+        <img src="./img/addConta.svg" alt="">
+        <h1 class="tit-addConta"><span style="color: rgb(98, 211, 164)">Deseja criar uma conta?</span> Preencha o formulário:</h1>
+        <form id="form-addConta" class="addConta">
+          <div class="divNome">
+            <label for="addNome">Nome completo:</label>
+            <input type="text" name="addNome" id="addNome" autocomplete="off" required>
+          </div>
+          <div>
+            <label for="addId">ID desejado:</label>
+            <input type="number" name="addId" id="addId" autocomplete="off" placeholder="máximo 6 números" required>
+          </div>
+          <div>
+            <label for="addSenha">Senha:</label>
+            <input type="password" name="addSenha" id="addSenha" maxlength="6" minlength="4" required>
+          </div>
+          <div class="divSaldo">
+            <label for="addSaldo">Saldo inicial:</label>
+            <input type="number" name="addSaldo" id="addSaldo" autocomplete="off" placeholder="" required>
+          </div>
+          <input class="btn-addConta" type="button" value="Criar conta" onclick="bank.addConta()">
+        </form>
+      </div>
+
+    </section>
+    <section class="contas-section">
+      <div class="bg-introLista">
+        <h1 class="introLista">Contas ativas nesse momento</h1>
+      </div>
+      <div class="bg-listaContas">
+        <ul id="listaContas" class="lista-Contas">
+          <!-- Lista de contas criadas aqui dentro -->
+        </ul>
+      </div>
+    </section>
+
+    <footer class="bg-footer">
+      <div class="footer-content">Todos os direitos reservados.</div>
+    </footer>
+  </main>
+  <script src="./script/script.js"></script>
+</body>
+
+</html>
