@@ -27,14 +27,19 @@ class Banco {
         senha = Number(addSenha.value);
         const existeID = this.contasBanco.find((conta) => conta.id == id);
         if (id && nome && saldo && senha && id.length < 6 && !existeID) {
-            let novaConta = new ContaBancaria(id, nome, saldo, senha);
-            this.contasBanco.push(novaConta);
-            this.attLista();
-            addId.value = "";
-            addNome.value = "";
-            addSaldo.value = "";
-            addSenha.value = "";
-            avisos("addConta-01");
+            if (/^[a-zA-Z\s]+$/.test(nome)) {
+                let novaConta = new ContaBancaria(id, nome, saldo, senha);
+                this.contasBanco.push(novaConta);
+                this.attLista();
+                addId.value = "";
+                addNome.value = "";
+                addSaldo.value = "";
+                addSenha.value = "";
+                avisos("addConta-01");
+            }
+            else {
+                avisos("addConta-04");
+            }
         }
         else if (existeID) {
             avisos("addConta-02");
@@ -48,6 +53,9 @@ class Banco {
         if (indexConta > -1) {
             this.contasBanco.splice(indexConta, 1);
             this.attLista();
+        }
+        else {
+            throw "ID não encontrado";
         }
     }
     logar(id, senha) {
@@ -230,6 +238,13 @@ function avisos(tipo) {
     }
     if (tipo === "addConta-03") {
         element.innerText = "Preencha todos os dados corretamente como descrito!";
+        element.classList.add("vermelho01");
+        element.classList.add("aviso");
+        box02 === null || box02 === void 0 ? void 0 : box02.appendChild(element);
+        setTimeout(() => box02 === null || box02 === void 0 ? void 0 : box02.removeChild(element), 2000);
+    }
+    if (tipo === "addConta-04") {
+        element.innerText = "Nome deve conter apenas letras.";
         element.classList.add("vermelho01");
         element.classList.add("aviso");
         box02 === null || box02 === void 0 ? void 0 : box02.appendChild(element);
