@@ -48,6 +48,14 @@ class Banco {
     }
   }
 
+  removerConta(id: stringNumber) {
+    const indexConta = this.contasBanco.findIndex((conta) => conta.id === id);
+    if (indexConta > -1) {
+      this.contasBanco.splice(indexConta, 1);
+      this.attLista();
+    }
+  }
+
   logar(id: stringNumber, senha: number) {
     const loginId = <HTMLInputElement>document.getElementById("loginId");
     const loginSenha = <HTMLInputElement>document.getElementById("loginSenha");
@@ -183,7 +191,7 @@ function avisos(tipo: string) {
     setTimeout(() => formLogin?.removeChild(element), 2000);
   }
   if (tipo === "login-03") {
-    element.innerText = "ID não cadastrado!";
+    element.innerText = "ID não cadastrado.";
     element.classList.add("vermelho01");
     formLogin?.appendChild(element);
     setTimeout(() => formLogin?.removeChild(element), 2000);
