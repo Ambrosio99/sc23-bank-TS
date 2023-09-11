@@ -176,78 +176,80 @@ function avisos(tipo) {
     const box01 = document.getElementById("box-01");
     const box02 = document.getElementById("box-02");
     const element = document.createElement("span");
-    if (tipo === "login-01") {
-        element.innerText = "Login realizado com sucesso!";
-        element.classList.add("verde01");
-        formLogin === null || formLogin === void 0 ? void 0 : formLogin.appendChild(element);
-        setTimeout(() => formLogin === null || formLogin === void 0 ? void 0 : formLogin.removeChild(element), 2000);
-    }
-    if (tipo === "login-02") {
-        element.innerText = "Senha incorreta!";
-        element.classList.add("vermelho01");
-        formLogin === null || formLogin === void 0 ? void 0 : formLogin.appendChild(element);
-        setTimeout(() => formLogin === null || formLogin === void 0 ? void 0 : formLogin.removeChild(element), 2000);
-    }
-    if (tipo === "login-03") {
-        element.innerText = "ID não cadastrado.";
-        element.classList.add("vermelho01");
-        formLogin === null || formLogin === void 0 ? void 0 : formLogin.appendChild(element);
-        setTimeout(() => formLogin === null || formLogin === void 0 ? void 0 : formLogin.removeChild(element), 2000);
-    }
-    if (tipo === "operacao-01") {
-        element.innerText = "Operação realizada com sucesso!";
-        element.classList.add("verde02");
-        element.classList.add("aviso");
-        box01 === null || box01 === void 0 ? void 0 : box01.appendChild(element);
-        setTimeout(() => box01 === null || box01 === void 0 ? void 0 : box01.removeChild(element), 2000);
-    }
-    if (tipo === "operacao-02") {
-        element.innerText = "Saldo insuficiente!";
-        element.classList.add("vermelho01");
-        element.classList.add("aviso");
-        box01 === null || box01 === void 0 ? void 0 : box01.appendChild(element);
-        setTimeout(() => box01 === null || box01 === void 0 ? void 0 : box01.removeChild(element), 2000);
-    }
-    if (tipo === "operacao-03") {
-        element.innerText = "Valor inválido.";
-        element.classList.add("vermelho01");
-        element.classList.add("aviso");
-        box01 === null || box01 === void 0 ? void 0 : box01.appendChild(element);
-        setTimeout(() => box01 === null || box01 === void 0 ? void 0 : box01.removeChild(element), 2000);
-    }
-    if (tipo === "operacao-04") {
-        element.innerText = "Destinatário não encontrado.";
-        element.classList.add("vermelho01");
-        element.classList.add("aviso");
-        box01 === null || box01 === void 0 ? void 0 : box01.appendChild(element);
-        setTimeout(() => box01 === null || box01 === void 0 ? void 0 : box01.removeChild(element), 2000);
-    }
-    if (tipo === "addConta-01") {
-        element.innerText = "Conta criada com sucesso!";
-        element.classList.add("verde01");
-        element.classList.add("aviso");
-        box02 === null || box02 === void 0 ? void 0 : box02.appendChild(element);
-        setTimeout(() => box02 === null || box02 === void 0 ? void 0 : box02.removeChild(element), 2000);
-    }
-    if (tipo === "addConta-02") {
-        element.innerText = "Esse ID ja está em uso. escolha outra combinação de números.";
-        element.classList.add("vermelho01");
-        element.classList.add("aviso");
-        box02 === null || box02 === void 0 ? void 0 : box02.appendChild(element);
-        setTimeout(() => box02 === null || box02 === void 0 ? void 0 : box02.removeChild(element), 2000);
-    }
-    if (tipo === "addConta-03") {
-        element.innerText = "Preencha todos os dados corretamente como descrito!";
-        element.classList.add("vermelho01");
-        element.classList.add("aviso");
-        box02 === null || box02 === void 0 ? void 0 : box02.appendChild(element);
-        setTimeout(() => box02 === null || box02 === void 0 ? void 0 : box02.removeChild(element), 2000);
-    }
-    if (tipo === "addConta-04") {
-        element.innerText = "Nome deve conter apenas letras.";
-        element.classList.add("vermelho01");
-        element.classList.add("aviso");
-        box02 === null || box02 === void 0 ? void 0 : box02.appendChild(element);
-        setTimeout(() => box02 === null || box02 === void 0 ? void 0 : box02.removeChild(element), 2000);
+    switch (tipo) {
+        case "login-01":
+            element.innerText = "Login realizado com sucesso!";
+            element.classList.add("verde01");
+            formLogin === null || formLogin === void 0 ? void 0 : formLogin.appendChild(element);
+            setTimeout(() => formLogin === null || formLogin === void 0 ? void 0 : formLogin.removeChild(element), 2000);
+            break;
+        case "login-02":
+            element.innerText = "Senha incorreta!";
+            element.classList.add("vermelho01");
+            formLogin === null || formLogin === void 0 ? void 0 : formLogin.appendChild(element);
+            setTimeout(() => formLogin === null || formLogin === void 0 ? void 0 : formLogin.removeChild(element), 2000);
+            break;
+        case "login-03":
+            element.innerText = "ID não cadastrado.";
+            element.classList.add("vermelho01");
+            formLogin === null || formLogin === void 0 ? void 0 : formLogin.appendChild(element);
+            setTimeout(() => formLogin === null || formLogin === void 0 ? void 0 : formLogin.removeChild(element), 2000);
+            break;
+        case "operacao-01":
+            element.innerText = "Operação realizada com sucesso!";
+            element.classList.add("verde02");
+            element.classList.add("aviso");
+            box01 === null || box01 === void 0 ? void 0 : box01.appendChild(element);
+            setTimeout(() => box01 === null || box01 === void 0 ? void 0 : box01.removeChild(element), 2000);
+            break;
+        case "operacao-02":
+            element.innerText = "Saldo insuficiente!";
+            element.classList.add("vermelho01");
+            element.classList.add("aviso");
+            box01 === null || box01 === void 0 ? void 0 : box01.appendChild(element);
+            setTimeout(() => box01 === null || box01 === void 0 ? void 0 : box01.removeChild(element), 2000);
+            break;
+        case "operacao-03":
+            element.innerText = "Valor inválido.";
+            element.classList.add("vermelho01");
+            element.classList.add("aviso");
+            box01 === null || box01 === void 0 ? void 0 : box01.appendChild(element);
+            setTimeout(() => box01 === null || box01 === void 0 ? void 0 : box01.removeChild(element), 2000);
+            break;
+        case "operacao-04":
+            element.innerText = "Destinatário não encontrado.";
+            element.classList.add("vermelho01");
+            element.classList.add("aviso");
+            box01 === null || box01 === void 0 ? void 0 : box01.appendChild(element);
+            setTimeout(() => box01 === null || box01 === void 0 ? void 0 : box01.removeChild(element), 2000);
+            break;
+        case "addConta-01":
+            element.innerText = "Conta criada com sucesso!";
+            element.classList.add("verde01");
+            element.classList.add("aviso");
+            box02 === null || box02 === void 0 ? void 0 : box02.appendChild(element);
+            setTimeout(() => box02 === null || box02 === void 0 ? void 0 : box02.removeChild(element), 2000);
+            break;
+        case "addConta-02":
+            element.innerText = "Esse ID ja está em uso. escolha outra combinação de números.";
+            element.classList.add("vermelho01");
+            element.classList.add("aviso");
+            box02 === null || box02 === void 0 ? void 0 : box02.appendChild(element);
+            setTimeout(() => box02 === null || box02 === void 0 ? void 0 : box02.removeChild(element), 2000);
+            break;
+        case "addConta-03":
+            element.innerText = "Preencha todos os dados corretamente como descrito!";
+            element.classList.add("vermelho01");
+            element.classList.add("aviso");
+            box02 === null || box02 === void 0 ? void 0 : box02.appendChild(element);
+            setTimeout(() => box02 === null || box02 === void 0 ? void 0 : box02.removeChild(element), 2000);
+            break;
+        case "addConta-04":
+            element.innerText = "Nome deve conter apenas letras.";
+            element.classList.add("vermelho01");
+            element.classList.add("aviso");
+            box02 === null || box02 === void 0 ? void 0 : box02.appendChild(element);
+            setTimeout(() => box02 === null || box02 === void 0 ? void 0 : box02.removeChild(element), 2000);
+            break;
     }
 }
